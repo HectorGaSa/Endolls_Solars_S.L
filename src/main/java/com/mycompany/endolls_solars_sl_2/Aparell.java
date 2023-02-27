@@ -12,7 +12,7 @@ public class Aparell {
     private boolean interruptor;
     private int potencia;
     private String descripcion;
-    
+//Constructor de la clase "Aparell"
 public Aparell(int potencia, String descripcion) {
     this.interruptor = false;
     this.potencia = potencia;
