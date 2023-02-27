@@ -15,7 +15,7 @@ public class Placa {
     private double precio;
     private int potencia;
 
-
+//Constructor de la clase "Placa"
 public Placa(int superficie, double precio, int potencia) {
     this.superficie = superficie;
     this.precio = precio;
