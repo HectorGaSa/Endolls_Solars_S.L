@@ -19,7 +19,7 @@ public class Casa {
     private ArrayList<Placa> placas = new ArrayList();
     private ArrayList<Aparell> aparells = new ArrayList();
 
-
+    //Constructor de la clase "Casa"
     public Casa(String NIF, String nom, int superficie) {
         this.NIF = NIF;
         this.nom = nom;
@@ -43,21 +43,21 @@ public class Casa {
         return interruptor;
     }
     
-    
+    //Funciones para poder añadir una placa y un aparato a la casa
     public void addplaca(Placa nueva) {
     placas.add(nueva);
     }
     public void addaparell(Aparell nuevo) {
     aparells.add(nuevo);
     }
-    
+    //Funcion para poder encender el interruptor general de la casa que se nos indique
     public void oncasa(String NIF) {
     boolean comprovador = interruptor;
     if (comprovador == false) {
         this.interruptor = true;
     } 
     }
-    
+    //Funcion para poder encender y apagar el aparato con la descripcion que se nos indique
     public void onaparell(String NIF, String descripcion) {
     boolean comprovador = interruptor;
     if (comprovador == false) {
@@ -71,6 +71,7 @@ public class Casa {
         this.interruptor = false;
     }
     }
+    //Funcion para poder buscar el aparato que deseamos
     public Aparell buscaraparell(String Descripcion) {
         String buscado = Descripcion;
         for (Aparell i : aparells) {
