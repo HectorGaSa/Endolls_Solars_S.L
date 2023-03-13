@@ -29,4 +29,16 @@ public String getDescripcion() {
     return descripcion;
 }
 
+//Funcion para poder encender y apagar el aparato con la descripcion que se nos indique
+    public void onaparell() {
+    if (interruptor == false) {
+        this.interruptor = true;
+    }
+    }
+    
+    public void offaparell() {
+    if (interruptor == true) {
+        this.interruptor = false;
+    }
+    }
 }
