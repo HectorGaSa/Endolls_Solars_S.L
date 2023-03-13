@@ -4,6 +4,8 @@
  */
 package com.mycompany.endolls_solars_sl_2;
 
+import static com.mycompany.endolls_solars_sl_2.Endolls_Solars_SL_2.buscarcasa;
+import static com.mycompany.endolls_solars_sl_2.Endolls_Solars_SL_2.casas;
 import java.util.ArrayList;
 
 /**
@@ -16,8 +18,8 @@ public class Casa {
     private String nom;
     private int superficie;
     private boolean interruptor;
-    private ArrayList<Placa> placas = new ArrayList();
-    private ArrayList<Aparell> aparells = new ArrayList();
+    static ArrayList<Placa> placas = new ArrayList();
+    static ArrayList<Aparell> aparells = new ArrayList();
 
     //Constructor de la clase "Casa"
     public Casa(String NIF, String nom, int superficie) {
@@ -51,26 +53,18 @@ public class Casa {
     aparells.add(nuevo);
     }
     //Funcion para poder encender el interruptor general de la casa que se nos indique
-    public void oncasa(String NIF) {
-    boolean comprovador = interruptor;
-    if (comprovador == false) {
+    public void oncasa() {
+    if (interruptor == false) {
         this.interruptor = true;
     } 
     }
-    //Funcion para poder encender y apagar el aparato con la descripcion que se nos indique
-    public void onaparell(String NIF, String descripcion) {
-    boolean comprovador = interruptor;
-    if (comprovador == false) {
-        this.interruptor = true;
-    }
-    }
     
-    public void offaparell(String NIF, String descripcion) {
-    boolean comprovador = interruptor;
-    if (comprovador == true) {
+    public void offcasa() {
+    if (interruptor == true) {
         this.interruptor = false;
     }
     }
+    
     //Funcion para poder buscar el aparato que deseamos
     public Aparell buscaraparell(String Descripcion) {
         String buscado = Descripcion;
@@ -80,6 +74,54 @@ public class Casa {
             }
         } return null;
     }
+    public Casa saltarplomos(int potencia){
+       Placa potenciaTotal = null;
+       int sumaPotencia = 0;
+       sumaPotencia = sumaPotencia + potencia;
+       if (sumaPotencia > potenciaTotal.getPotencia()){
+           System.out.println("ERROR: Han saltat els ploms. La casa ha quedat completament apagada.");
+           Aparell ElAparell = null;
+           Casa LaCasa = null;
+           LaCasa.offcasa();
+           for (Aparell i : aparells) {
+               if (i.getInterruptor() == true) {
+                   ElAparell.offaparell();
+               }
+           }
+       }
+       return null;
+    }
+    public Casa restaTeulada(int superficie){
+        Placa superficiePlaca = null;
+        Casa superficieTeulada = null;
+        int restantTeulada = superficieTeulada.getSuperficie();
+        restantTeulada = restantTeulada - superficiePlaca.getSuperficie();
+        if (superficiePlaca.getSuperficie() > restantTeulada){
+            System.out.println("ERROR: No hi ha espai disponible per a instal·lar aquesta placa.");
+        }
+        return null;
+    }
+    public Casa potenciaTotal(){
+        int PotenciaTotal = 0;
+        for (Placa i : placas) {
+        PotenciaTotal = PotenciaTotal + i.getPotencia();
+    } return null;
+    }
+    
+    public Casa inversioTotal() {
+        double InversioTotal = 0;
+        for (Placa i : placas){
+            InversioTotal = InversioTotal + i.getPrecio();
+        } return null;
+    }
+    
+    public Casa consumTotal() {
+        int ConsumTotal = 0;
+        for (Aparell i : aparells) {
+            ConsumTotal = ConsumTotal + i.getPotencia();
+        } return null;
+    }
+    
 //    int potencia = datosPlaca.getPotencia();
 //    int superficiePlaca = datosPlaca.getSuperficie();
 //    double precio = datosPlaca.getPrecio();
