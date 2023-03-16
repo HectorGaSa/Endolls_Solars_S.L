@@ -86,9 +86,8 @@ public class Casa {
 
     //Funcion para poder buscar el aparato que deseamos.
     public Aparell buscaraparell(String Descripcion) {
-        String buscado = Descripcion;
         for (Aparell i : aparells) {
-            if (i != null && i.getDescripcion().equals(buscado)) {
+            if (i != null && i.getDescripcion().equals(Descripcion)) {
                 return i;
             }
         }
@@ -111,37 +110,37 @@ public class Casa {
     }
 //Funcion la cual calcula lo que queda de la teulada de la casa restandole la superficie de la placa.
     public int restaTeulada() {
-        int restantTeulada = superficie;
+        int restaTeulada = superficie;
         for (Placa i : placas) {
-            restantTeulada = restantTeulada - i.getSuperficie();
+            restaTeulada = restaTeulada - i.getSuperficie();
         }
-        return restantTeulada;
+        return restaTeulada;
     }
 //Funcion la cual calcula la potencia total que dan todas las placas instaladas de la casa.
     public int potenciaTotal() {
-        int PotenciaTotal = 0;
+        int potenciaTotal = 0;
         for (Placa i : placas) {
-            PotenciaTotal = PotenciaTotal + i.getPotencia();
+            potenciaTotal = potenciaTotal + i.getPotencia();
         }
-        return PotenciaTotal;
+        return potenciaTotal;
     }
 //Funcion la cual calcula el precio total que cuestan todas las placas instaladas en la casa.
     public double inversioTotal() {
-        double InversioTotal = 0;
+        double inversioTotal = 0;
         for (Placa i : placas) {
-            InversioTotal = InversioTotal + i.getPrecio();
+            inversioTotal = inversioTotal + i.getPrecio();
         }
-        return InversioTotal;
+        return inversioTotal;
     }
 //Funcion la cual calcula el consumo total de todos los aparatos encendidos en la casa.
     public int consumTotal() {
-        int ConsumTotal = 0;
+        int consumTotal = 0;
         for (Aparell i : aparells) {
             if (i.getInterruptor() == true) {
-                ConsumTotal = ConsumTotal + i.getPotencia();
+                consumTotal = consumTotal + i.getPotencia();
             }
         }
-        return ConsumTotal;
+        return consumTotal;
     }
 
 //    int potencia = datosPlaca.getPotencia();
