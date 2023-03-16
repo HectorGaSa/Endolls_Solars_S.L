@@ -40,5 +40,6 @@ public String getDescripcion() {
     if (interruptor == true) {
         this.interruptor = false;
     }
+    
     }
 }
